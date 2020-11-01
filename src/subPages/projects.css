@@ -1,0 +1,21 @@
+.projects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.projects img {
+    width: 100%;
+}
+.card {
+    box-shadow: 1px 2px 5px 0px rgb(189, 93, 56,.1);
+    margin: 10px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 1px 2px 5px 0px rgb(189, 93, 56,.3);
+}
+.card-body {
+    padding: 0px 10px 10px;
+}
