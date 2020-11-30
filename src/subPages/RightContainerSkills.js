@@ -1,25 +1,26 @@
-import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react'
+import { Card } from 'react-bootstrap'
+import { projects } from '../dataArrays/skillsData';
 
-import zdravko from '../img/zdravko400px.png'
+import Modal from '../modals/Modal';
+
 import './projects.css'
 
-const projects = [
-    {   title: "zdravko",
-        url: "https://szajc.github.io/med/",
-        desc: "Mobile application - developed using: Ionic, React, Node.js, Firebase, javaScript, HTML, CSS, ..."
-    },
-    {   title: "scheduler",
-        url: "https://szajc.github.io/med/",
-        desc: "Mobile application - developed using: Ionic, React, Node.js, Firebase, javaScript, HTML, CSS, ..."
-    },
-    {   title: "MERN stack",
-        url: "https://szajc.github.io/med/",
-        desc: "Web application - developed using: MongoDB, Express, React, Node.js, javaScript, HTML, CSS"
-    }
-]
-
 export default function RightContainerSkills() {
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [getProject, setGetProject] = useState();
+
+    useEffect(() => {
+        const body = document.querySelector('body');
+        body.style.overflow = isOpen ? 'hidden' : 'auto';
+      }, [isOpen])
+
+    const openModal = (selectedProject) => {
+        setIsOpen(true);
+        setGetProject(selectedProject)
+    }
+
     return (
         <section className="section-skills" id="skills/projects">
             <div className="inner-skills" >
@@ -45,14 +46,19 @@ export default function RightContainerSkills() {
                         <a className="soc-img-bot" >
                             <i className="fab fa-js-square" ></i>
                         </a>
-                        <a className="soc-img-bot" >
-                            <i className="fab fa-sass" ></i>
-                        </a>
+                        {
+                        //<a className="soc-img-bot" >
+                        //    <i className="fab fa-sass" ></i>
+                        //</a>
+                        }
                         <a className="soc-img-bot" >
                             <i className="fab fa-adobe" ></i>
                         </a>
                         <a className="soc-img-bot" >
                             <i className="fab fa-wordpress"></i>
+                        </a>
+                        <a className="soc-img-bot" >
+                            <i className="fab fa-github"></i>
                         </a>
                     </div>
 
@@ -61,15 +67,29 @@ export default function RightContainerSkills() {
                     {
                         projects.map(project => (
                             <Card style={{ width: '250px' }} key={project.title}>
-                                <Card.Img variant="top" src={zdravko} />
+                                <Card.Img variant="top" src={project.img} />
                                 <Card.Body>
                                     <Card.Title>{project.title}</Card.Title>
                                     <Card.Text>{project.desc}</Card.Text>
-                                    <Button variant="primary" >Link</Button>
+                                    <div className="buttons-divider">
+                                    {
+                                        project.url ? <a href={project.url} target="_blank">Link</a> : null
+                                    }
+                                    {
+                                        project.info ? <a onClick={() => openModal(project)}>Info</a> : null
+                                        // in modal bellow paste all the things from project.info...
+                                    }
+                                    </div>
                                 </Card.Body>
                             </Card>
                         ))
                     }
+                    
+                        <Modal 
+                            close={() => setIsOpen(false)} 
+                            data={getProject && getProject.detailedInfo} 
+                            open={isOpen} 
+                        />
                     </div>
                 </div>
             </div>

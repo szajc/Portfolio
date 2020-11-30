@@ -312,12 +312,16 @@ hr {
     height: auto;
     width: 100%;
 }
+.left-box-interests {
+    width: 100%;
+}
 
 /****
         ALL RIGHT RESERVED
 ****/
 .small {
     text-align: right;
+    padding-top: 10px;
     padding-bottom: 20px;
     padding-right: 10%;
 }

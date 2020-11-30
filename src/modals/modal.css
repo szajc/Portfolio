@@ -1,0 +1,34 @@
+.Overlay {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 50px;
+    z-index: 999;
+    scroll-behavior: smooth;
+}
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0,.7);
+    z-index: 998;
+}
+.Overlay-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+@media (max-width: 800px) {
+    .Overlay {
+        overflow-y: initial !important;
+    }
+    .Overlay-card {
+        height: 80vh;
+        overflow-y: auto;
+    }
+}

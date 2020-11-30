@@ -11,23 +11,31 @@ import './home.css';
 
 const pages = [
     {   
-        text : "about",
+        textHref : "about",
+        text: "O meni",
         id : "ab"},
     {   
-        text : "expirience",
+        textHref : "expirience",
+        text : "izkušnje",
         id : "ex"  },
     {   
-        text : "education",
+        textHref : "education",
+        text : "izobrazba",
         id : "ed"  },
     {   
-        text : "skills/projects",
+        textHref : "skills/projects",
+        text : "spretnosti",
         id : "sk"  },
     {   
-        text : "interests",
+        textHref : "interests",
+        text : "zanimanja",
         id : "in"  },
 ];
 
 export default function Home() {
+
+    let d = new Date();
+    let n = d.getFullYear();
 
     return (
         <div className="Container">
@@ -37,16 +45,18 @@ export default function Home() {
             <div className="Right-container">
                 <RightContainerAbout />
                 <hr className="bottom-line"></hr>
-                <RightContainerExpirience />
-                <hr className="bottom-line"></hr>
-                <RightContainerEducation />
-                <hr className="bottom-line"></hr>
+                
+                    <RightContainerExpirience />
+                    <hr className="bottom-line"></hr>
+                    <RightContainerEducation />
+                    <hr className="bottom-line"></hr>
+                
                 <RightContainerSkills />
                 <hr className="bottom-line"></hr>
                 <RightContainerInterests />
                 <hr className="bottom-line"></hr>
                 <div className="small">
-                    <small>© SZ 2019. All Rights Reserved.</small>
+                    <small>© SZ {n}. All Rights Reserved.</small>
                 </div>
             </div>
         </div>

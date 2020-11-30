@@ -19,6 +19,7 @@ export default function NavLeftContainer({ pages }) {
         const getEle = document.getElementById("navHamburger");
         getEle.className = "navbar";
         setShow(prevState => !prevState);
+        console.log();
     }
 
     return (
@@ -43,7 +44,7 @@ export default function NavLeftContainer({ pages }) {
                             <li className="nav-item" key={page.text}>
                                 <a className="nav-link" 
                                     id={page.id} 
-                                    href={"#" + page.text} 
+                                    href={"#" + page.textHref} 
                                     onClick={menuItemClicked} >{page.text}</a>
                             </li>
                         ))

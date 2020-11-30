@@ -6,7 +6,7 @@ export default function RightContainerInterests() {
             <div className="inner-interests" >
                 <h2>ZANIMANJA</h2>
                 <div className="exp-set">
-                    <div className="left-box w100">
+                    <div className="left-box-interests w100">
                         <div className="exp-heading">
                             <div className="sub-heading bm10">ZANIMANJA V PROSTEM ČASU</div>
                         </div>
